@@ -1,2 +1,1 @@
-# graphQL_api_basic
-graphQL_api
+Graphql playgroud를 통한 예제입니다
