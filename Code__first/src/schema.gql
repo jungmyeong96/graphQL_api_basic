@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  getUserTempById(id: String!): UserTemp!
+}
+
+"""temp"""
+type UserTemp {
+  email: String!
+  id: ID!
+  name: String!
+}
