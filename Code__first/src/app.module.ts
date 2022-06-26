@@ -1,10 +1,12 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeORMConfig } from 'src/configs/typeorm.config';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CodePlayModule } from './code_play/code_play.module';
+import { EmployeeModule } from './employee/employee.module';
+import { ProjectModule } from './project/project.module';
 
 @Module({
   imports: [
@@ -15,9 +17,10 @@ import { CodePlayModule } from './code_play/code_play.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true
     }),
-    CodePlayModule
+    TypeOrmModule.forRoot( typeORMConfig ),
+    CodePlayModule,
+    EmployeeModule,
+    ProjectModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
